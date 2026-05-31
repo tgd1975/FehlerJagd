@@ -1,0 +1,50 @@
+# Beispielfall — Story-Graph (Branch & Bottleneck / "string of pearls")
+# Beispielhaft befüllt: szene-01.md (Vorlesen) und szene-05.md (Fehlerjagd).
+# Die übrigen Szenen sind Platzhalter und noch zu schreiben.
+
+case_id: fall-01
+title: "Das Geheimnis der Schulbibliothek"
+title_image: titles/fall-01.png        # Aktendeckel-Bild für die Fallauswahl
+start: szene-01
+
+scenes:
+  szene-01:
+    text: szene-01.md
+    mode: vorlesen
+    target_patterns: ["doppelkonsonant", "ie"]
+    reveal_image: scenes/fall-01/szene-01.png   # erscheint ERST nach gutem Vorlesen (Belohnung)
+    choices:
+      - { label: "Frau Brandner fragen", goto: szene-02a }
+      - { label: "Das Regal untersuchen", goto: szene-02b }
+
+  szene-02a: { text: szene-02a.md, mode: vorlesen, goto: szene-03 }   # Konvergenz
+  szene-02b: { text: szene-02b.md, mode: vorlesen, goto: szene-03 }   # Konvergenz
+
+  szene-03:
+    text: szene-03.md
+    mode: vorlesen
+    target_patterns: ["ie", "doppelkonsonant"]
+    choices:
+      - { label: "Das blaue Buch zuerst", goto: szene-04 }
+      - { label: "Das rote Buch zuerst", goto: szene-04 }
+
+  szene-04: { text: szene-04.md, mode: vorlesen, goto: szene-05 }
+
+  # --- Die Fälscher-Notiz: Korrekturlesen ---
+  szene-05:
+    text: szene-05.md                 # Notiz-Text mit eingebauten Fehlern (lautes Vorlesen)
+    mode: fehlerjagd
+    proofread_errors:
+      - { shown: "Bücehr", correct: "Bücher", klasse: "hoerbar",         regel: "–", tipp: "Buchstaben vertauscht — genau lesen.",        method: "lesen_oder_markieren" }
+      - { shown: "regal",  correct: "Regal",  klasse: "grossschreibung", regel: 1,   tipp: "Nomen großschreiben (Regel 1).",             method: "markieren" }
+      - { shown: "vile",   correct: "viele",  klasse: "homophon",        regel: 5,   tipp: "Langes i schreibt man ie (Regel 5).",        method: "markieren" }
+      - { shown: "ales",   correct: "alles",  klasse: "vokallaenge",     regel: 8,   tipp: "Kurzer Vokal → Doppel-Bremse ll (Regel 8).", method: "markieren" }
+    choices:
+      - { label: "Den Hausmeister suchen", goto: szene-06 }
+      - { label: "Im Lesesaal nachsehen",  goto: szene-06 }
+
+  szene-06: { text: szene-06.md, mode: vorlesen, goto: szene-07 }
+
+  szene-07: { text: szene-07.md, mode: vorlesen }   # Auflösung
+
+  bonus-01: { text: bonus-01.md, mode: vorlesen, requires: "all_green" }

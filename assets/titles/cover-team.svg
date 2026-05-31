@@ -1,0 +1,242 @@
+<svg viewBox="0 0 1200 1600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FehlerJagd – Cover mit dem Detektiv-Trio Mia, Ben und Frieda">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&amp;family=Atkinson+Hyperlegible:wght@400;700&amp;display=swap');
+      .title { font-family:'Baloo 2','Trebuchet MS','Comic Sans MS',system-ui,sans-serif; font-weight:800; }
+      .body  { font-family:'Atkinson Hyperlegible','Lexend','Trebuchet MS',sans-serif; }
+    </style>
+    <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="2.3" fill="#27374D" opacity="0.05"/>
+    </pattern>
+    <linearGradient id="bgwarm" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FCF7EA"/>
+      <stop offset="1" stop-color="#F4E9D2"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.62" r="0.5">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- background -->
+  <rect width="1200" height="1600" fill="url(#bgwarm)"/>
+  <rect width="1200" height="1600" fill="url(#dots)"/>
+  <ellipse cx="600" cy="1000" rx="560" ry="560" fill="url(#glow)"/>
+
+  <!-- faint Vienna hints -->
+  <g opacity="0.11" fill="none" stroke="#2E8B7F" stroke-width="6">
+    <!-- Riesenrad (right) -->
+    <g transform="translate(1010,560)">
+      <circle r="150"/>
+      <circle r="14" fill="#2E8B7F"/>
+      <g stroke-width="5">
+        <line x1="0" y1="-150" x2="0" y2="150"/>
+        <line x1="-150" y1="0" x2="150" y2="0"/>
+        <line x1="-106" y1="-106" x2="106" y2="106"/>
+        <line x1="106" y1="-106" x2="-106" y2="106"/>
+      </g>
+      <g fill="#2E8B7F" stroke="none">
+        <rect x="-12" y="-162" width="24" height="20" rx="5"/>
+        <rect x="138" y="-12" width="20" height="24" rx="5"/>
+        <rect x="-12" y="142" width="24" height="20" rx="5"/>
+        <rect x="-158" y="-12" width="20" height="24" rx="5"/>
+      </g>
+      <line x1="-95" y1="135" x2="-150" y2="290" stroke-width="7"/>
+      <line x1="95" y1="135" x2="150" y2="290" stroke-width="7"/>
+    </g>
+    <!-- domed church (left) -->
+    <g transform="translate(210,600)">
+      <path d="M-60 150 L-60 30 Q0 -40 60 30 L60 150" />
+      <line x1="0" y1="-38" x2="0" y2="-70"/>
+      <circle cx="0" cy="-78" r="8" fill="#2E8B7F"/>
+      <rect x="-95" y="60" width="22" height="90" rx="6"/>
+      <rect x="73" y="60" width="22" height="90" rx="6"/>
+    </g>
+  </g>
+
+  <!-- bookshelf behind the trio -->
+  <g>
+    <rect x="40" y="1120" width="1120" height="200" rx="14" fill="#EFE2C6"/>
+    <g>
+      <rect x="70"  y="1132" width="34" height="150" rx="6" fill="#2E8B7F" opacity="0.55"/>
+      <rect x="110" y="1146" width="28" height="136" rx="6" fill="#E0796B" opacity="0.5"/>
+      <rect x="144" y="1138" width="40" height="144" rx="6" fill="#F2B544" opacity="0.55"/>
+      <rect x="190" y="1150" width="26" height="132" rx="6" fill="#27374D" opacity="0.35"/>
+      <rect x="222" y="1134" width="34" height="148" rx="6" fill="#2E8B7F" opacity="0.4"/>
+      <rect x="980"  y="1140" width="32" height="142" rx="6" fill="#E0796B" opacity="0.5"/>
+      <rect x="1018" y="1132" width="38" height="150" rx="6" fill="#2E8B7F" opacity="0.55"/>
+      <rect x="1062" y="1148" width="26" height="134" rx="6" fill="#F2B544" opacity="0.55"/>
+      <rect x="1094" y="1138" width="34" height="144" rx="6" fill="#27374D" opacity="0.32"/>
+    </g>
+    <rect x="40" y="1300" width="1120" height="20" rx="8" fill="#D9C8A4"/>
+  </g>
+
+  <!-- ground shadow -->
+  <ellipse cx="600" cy="1330" rx="400" ry="42" fill="#27374D" opacity="0.10"/>
+
+  <!-- ===================== MIA (center) ===================== -->
+  <g>
+    <!-- legs + shoes -->
+    <rect x="520" y="1095" width="30" height="120" rx="14" fill="#F0C19C"/>
+    <rect x="566" y="1095" width="30" height="120" rx="14" fill="#F0C19C"/>
+    <rect x="508" y="1198" width="52" height="30" rx="12" fill="#27374D"/>
+    <rect x="558" y="1198" width="52" height="30" rx="12" fill="#27374D"/>
+    <!-- skirt -->
+    <path d="M498 1000 L618 1000 L648 1110 L468 1110 Z" fill="#246B62"/>
+    <!-- jacket / torso -->
+    <path d="M512 880 Q558 862 604 880 L626 1010 L490 1010 Z" fill="#2E8B7F"/>
+    <!-- right arm down -->
+    <path d="M512 902 Q470 980 466 1040" fill="none" stroke="#2E8B7F" stroke-width="34" stroke-linecap="round"/>
+    <circle cx="466" cy="1048" r="18" fill="#F0C19C"/>
+    <!-- left arm raised toward magnifier -->
+    <path d="M602 902 Q648 820 668 742" fill="none" stroke="#2E8B7F" stroke-width="34" stroke-linecap="round"/>
+    <circle cx="672" cy="730" r="18" fill="#F0C19C"/>
+    <!-- magnifying glass -->
+    <g transform="rotate(28 690 700)">
+      <circle cx="690" cy="700" r="40" fill="#BFE3DD" opacity="0.7" stroke="#246B62" stroke-width="9"/>
+      <path d="M676 684 q10 -8 22 0" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
+      <rect x="681" y="738" width="18" height="56" rx="9" fill="#27374D"/>
+    </g>
+    <!-- head -->
+    <circle cx="555" cy="798" r="76" fill="#5C4326"/>
+    <circle cx="555" cy="812" r="66" fill="#F0C19C"/>
+    <path d="M495 770 Q555 738 615 770 Q600 792 580 782 Q558 800 540 782 Q518 792 495 786 Z" fill="#5C4326"/>
+    <rect x="612" y="800" width="16" height="20" rx="6" fill="#F2B544"/>
+    <!-- ponytail -->
+    <ellipse cx="638" cy="812" rx="24" ry="44" fill="#5C4326"/>
+    <!-- face -->
+    <circle cx="513" cy="832" r="11" fill="#E0796B" opacity="0.35"/>
+    <circle cx="597" cy="832" r="11" fill="#E0796B" opacity="0.35"/>
+    <circle cx="536" cy="808" r="7" fill="#27374D"/>
+    <circle cx="576" cy="808" r="7" fill="#27374D"/>
+    <circle cx="534" cy="805" r="2.5" fill="#fff"/>
+    <circle cx="574" cy="805" r="2.5" fill="#fff"/>
+    <path d="M530 838 Q555 860 580 838" fill="none" stroke="#27374D" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <!-- ===================== BEN (right) ===================== -->
+  <g>
+    <!-- legs + shoes -->
+    <rect x="772" y="1090" width="30" height="125" rx="14" fill="#34507A"/>
+    <rect x="818" y="1090" width="30" height="125" rx="14" fill="#34507A"/>
+    <rect x="760" y="1198" width="52" height="30" rx="12" fill="#27374D"/>
+    <rect x="810" y="1198" width="52" height="30" rx="12" fill="#27374D"/>
+    <!-- hoodie -->
+    <path d="M762 884 Q808 864 854 884 L876 1100 L740 1100 Z" fill="#F2B544"/>
+    <path d="M778 880 Q808 906 838 880" fill="none" stroke="#D99A2B" stroke-width="10" stroke-linecap="round"/>
+    <path d="M778 1010 Q808 1036 838 1010" fill="none" stroke="#D99A2B" stroke-width="8" stroke-linecap="round"/>
+    <!-- right arm holding flashlight -->
+    <path d="M854 904 Q884 970 868 1000" fill="none" stroke="#F2B544" stroke-width="32" stroke-linecap="round"/>
+    <circle cx="858" cy="1006" r="17" fill="#F0C19C"/>
+    <g transform="rotate(38 858 1006)">
+      <rect x="842" y="998" width="58" height="20" rx="8" fill="#27374D"/>
+      <rect x="896" y="996" width="14" height="24" rx="5" fill="#F2B544"/>
+    </g>
+    <!-- left arm down -->
+    <path d="M762 904 Q734 974 742 1030" fill="none" stroke="#F2B544" stroke-width="32" stroke-linecap="round"/>
+    <circle cx="746" cy="1038" r="17" fill="#F0C19C"/>
+    <!-- head -->
+    <circle cx="800" cy="790" r="74" fill="#3C2E22"/>
+    <circle cx="800" cy="804" r="66" fill="#F0C19C"/>
+    <path d="M742 766 Q800 730 858 766 Q840 792 800 784 Q760 792 742 780 Z" fill="#3C2E22"/>
+    <!-- cheeks -->
+    <circle cx="760" cy="828" r="11" fill="#E0796B" opacity="0.32"/>
+    <circle cx="840" cy="828" r="11" fill="#E0796B" opacity="0.32"/>
+    <!-- glasses -->
+    <circle cx="781" cy="802" r="20" fill="#FFFFFF" opacity="0.18" stroke="#27374D" stroke-width="5"/>
+    <circle cx="821" cy="802" r="20" fill="#FFFFFF" opacity="0.18" stroke="#27374D" stroke-width="5"/>
+    <path d="M761 800 l-16 -4" stroke="#27374D" stroke-width="5" stroke-linecap="round"/>
+    <path d="M841 800 l16 -4" stroke="#27374D" stroke-width="5" stroke-linecap="round"/>
+    <!-- eyes -->
+    <circle cx="781" cy="804" r="6" fill="#27374D"/>
+    <circle cx="821" cy="804" r="6" fill="#27374D"/>
+    <!-- grin -->
+    <path d="M770 832 Q800 862 830 832" fill="none" stroke="#27374D" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <!-- ===================== FRIEDA (front) ===================== -->
+  <g>
+    <ellipse cx="500" cy="1318" rx="180" ry="22" fill="#27374D" opacity="0.10"/>
+    <!-- legs -->
+    <rect x="438" y="1268" width="22" height="56" rx="10" fill="#A86A37"/>
+    <rect x="492" y="1272" width="22" height="52" rx="10" fill="#A86A37"/>
+    <rect x="588" y="1272" width="22" height="52" rx="10" fill="#A86A37"/>
+    <rect x="636" y="1268" width="22" height="56" rx="10" fill="#A86A37"/>
+    <!-- tail -->
+    <path d="M650 1232 Q706 1212 712 1168" fill="none" stroke="#C8854A" stroke-width="20" stroke-linecap="round"/>
+    <!-- body -->
+    <ellipse cx="548" cy="1244" rx="135" ry="50" fill="#C8854A"/>
+    <ellipse cx="560" cy="1262" rx="110" ry="30" fill="#E0B07A"/>
+    <!-- head + snout -->
+    <circle cx="436" cy="1230" r="48" fill="#C8854A"/>
+    <path d="M404 1232 Q372 1248 378 1284 L412 1276 Q416 1250 432 1248 Z" fill="#C8854A"/>
+    <ellipse cx="384" cy="1280" rx="14" ry="11" fill="#27374D"/>
+    <!-- ear -->
+    <path d="M438 1196 Q414 1210 420 1260 Q430 1296 452 1284 Q446 1240 462 1206 Q452 1190 438 1196 Z" fill="#A86A37"/>
+    <!-- eye + brow -->
+    <circle cx="428" cy="1218" r="6.5" fill="#27374D"/>
+    <circle cx="426" cy="1215" r="2" fill="#fff"/>
+    <path d="M418 1206 q10 -6 20 -1" fill="none" stroke="#A86A37" stroke-width="4" stroke-linecap="round"/>
+    <!-- collar + tag -->
+    <path d="M462 1250 Q486 1268 470 1290" fill="none" stroke="#2E8B7F" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="476" cy="1294" r="13" fill="#F2B544" stroke="#D99A2B" stroke-width="3"/>
+    <circle cx="476" cy="1294" r="5.5" fill="none" stroke="#27374D" stroke-width="2.6"/>
+    <line x1="480" y1="1298" x2="486" y2="1304" stroke="#27374D" stroke-width="2.6" stroke-linecap="round"/>
+    <!-- clue paper under the nose -->
+    <g transform="rotate(-14 350 1300)">
+      <rect x="300" y="1280" width="92" height="56" rx="7" fill="#FFFDF7" stroke="#E4D8BE" stroke-width="2"/>
+      <rect x="312" y="1294" width="60" height="6" rx="3" fill="#C9BBA0"/>
+      <rect x="312" y="1308" width="48" height="6" rx="3" fill="#E0796B"/>
+      <path d="M312 1314 q12 6 24 0 q12 -6 24 0" fill="none" stroke="#E0796B" stroke-width="2.4"/>
+    </g>
+  </g>
+
+  <!-- ===================== Fälscher-Notiz (floating, explains mechanic) ===================== -->
+  <g transform="rotate(-6 255 690)">
+    <rect x="150" y="556" width="210" height="272" rx="12" fill="#FFFDF7" stroke="#E4D8BE" stroke-width="3"/>
+    <rect x="208" y="546" width="96" height="26" rx="5" fill="#F2B544" opacity="0.6" transform="rotate(-4 256 559)"/>
+    <path d="M338 556 L360 556 L360 578 Z" fill="#EFE2C6"/>
+    <text x="172" y="592" class="title" font-size="20" fill="#27374D">Fälscher-Notiz</text>
+    <!-- text lines -->
+    <rect x="172" y="610" width="166" height="9" rx="4" fill="#CFC2A6"/>
+    <!-- wrong word 1 -->
+    <rect x="172" y="630" width="78" height="20" rx="5" fill="#27374D" opacity="0.78"/>
+    <text x="178" y="646" class="body" font-size="16" fill="#FFFDF7" font-weight="700">Bücehr</text>
+    <path d="M172 654 q10 6 20 0 q10 -6 20 0 q10 6 20 0 q9 -6 18 0" fill="none" stroke="#E0796B" stroke-width="3"/>
+    <rect x="260" y="632" width="78" height="9" rx="4" fill="#CFC2A6"/>
+    <rect x="172" y="668" width="120" height="9" rx="4" fill="#CFC2A6"/>
+    <!-- wrong word 2 -->
+    <rect x="172" y="688" width="58" height="20" rx="5" fill="#27374D" opacity="0.78"/>
+    <text x="178" y="704" class="body" font-size="16" fill="#FFFDF7" font-weight="700">vile</text>
+    <path d="M172 712 q9 6 18 0 q9 -6 18 0 q9 6 18 0" fill="none" stroke="#E0796B" stroke-width="3"/>
+    <rect x="240" y="690" width="96" height="9" rx="4" fill="#CFC2A6"/>
+    <!-- green/yellow/red signal -->
+    <g transform="translate(176,760)">
+      <circle cx="0"  cy="0" r="13" fill="#3FA796"/>
+      <circle cx="40" cy="0" r="13" fill="#F2B544"/>
+      <circle cx="80" cy="0" r="13" fill="#E0796B"/>
+      <path d="M-5 0 l4 5 l8 -10" fill="none" stroke="#FFFDF7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+
+  <!-- ===================== TITLE ===================== -->
+  <g>
+    <text x="600" y="240" text-anchor="middle" class="title" font-size="118">
+      <tspan fill="#27374D">Fehler</tspan><tspan fill="#2E8B7F">Jagd</tspan>
+    </text>
+    <!-- red proofreading squiggle under the word "Fehler" -->
+    <path d="M248 258 q19 14 38 0 q19 -14 38 0 q19 14 38 0 q19 -14 38 0 q19 14 38 0 q19 -14 38 0 q19 14 38 0 q18 -14 36 0"
+          fill="none" stroke="#E0796B" stroke-width="8" stroke-linecap="round"/>
+    <!-- small magnifier accent -->
+    <g transform="translate(1052,126) rotate(20)">
+      <circle r="26" fill="#BFE3DD" opacity="0.45"/>
+      <circle r="26" fill="none" stroke="#27374D" stroke-width="8"/>
+      <rect x="17" y="17" width="14" height="40" rx="7" fill="#27374D"/>
+    </g>
+    <text x="600" y="316" text-anchor="middle" class="body" font-size="40" fill="#3A4A63" font-weight="700">Lies genau — finde den Fehler.</text>
+    <text x="600" y="370" text-anchor="middle" class="body" font-size="26" fill="#2E8B7F" letter-spacing="6" font-weight="700">MIA · BEN · FRIEDA</text>
+  </g>
+
+  <!-- inset keyline -->
+  <rect x="34" y="34" width="1132" height="1532" rx="34" fill="none" stroke="#27374D" stroke-width="4" opacity="0.18"/>
+</svg>

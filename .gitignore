@@ -1,0 +1,41 @@
+# --- Python / Backend ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# --- Secrets / Config ---
+.env
+.env.*
+!.env.example
+
+# --- Node / Frontend ---
+node_modules/
+dist/
+build/
+.vite/
+
+# --- Daten & Aufnahmen (NICHT einchecken — enthalten Kinderstimme) ---
+data/
+*.wav
+*.mp3
+*.flac
+*.db
+*.sqlite
+*.sqlite3
+instance/
+
+# --- ML-Modell-Caches ---
+.cache/
+*.pt
+*.onnx
+models/
+
+# --- OS / IDE ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

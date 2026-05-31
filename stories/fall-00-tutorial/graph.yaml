@@ -1,0 +1,54 @@
+# Fall 0 — Tutorial: Willkommen im Detektivklub
+# Zweck: (1) das Trio Mia, Ben & Frieda vorstellen, (2) beide Mechaniken
+#        erklären, (3) Stimm-Eichung = individuelles Training der
+#        Phonetikerkennung.
+#
+# Besonderheiten dieses Falls (Hinweise für die Engine / Claude Code):
+#   hints: true        -> Tipps & Markierungshilfen an (sanfter Einstieg).
+#   mode: kalibrierung -> die App NIMMT die Stimme auf und lernt die
+#                         persönliche Basislinie (Sprechtempo, typische
+#                         Alignment-Konfidenz). KEINE Wertung richtig/falsch,
+#                         alles zählt als Übung. Diese Aufnahme ist die
+#                         Grundlage für die grün/gelb/rot-Schwellen
+#                         (vgl. phase0/validate_scoring.py).
+#   scoring: uebung    -> nie gatekeepen, immer ermutigend rückmelden.
+
+titel: "Tutorial — Willkommen im Detektivklub"
+schauplatz: "Detektivklub (Rahmen)"
+start: szene-01
+ziel_muster: ["onboarding", "stimm-eichung"]
+hints: true
+
+nodes:
+  szene-01: { text: szene-01.md, mode: vorlesen, goto: szene-02 }     # Intro: Trio
+  szene-02: { text: szene-02.md, mode: vorlesen, goto: szene-03 }     # Mechanik Vorlesen (Ampel)
+
+  szene-03:                                                           # Stimm-Eichung
+    text: szene-03.md
+    mode: kalibrierung
+    scoring: uebung
+    # Eich-Sätze: kurz, sicher lesbar, breite Lautabdeckung
+    # (lange/kurze Vokale, Umlaute ä/ö, Diphthonge ei/au/eu, sch/ch).
+    # Reihenfolge = Aufnahme-Reihenfolge.
+    eich_saetze:
+      - "Mia und Ben sind Detektive."
+      - "Frieda ist ein kluger Hund."
+      - "Wir lesen heute ganz genau."
+      - "Der Fälscher macht viele Fehler."
+      - "Schau dir die Wörter gut an."
+      - "Jetzt beginnt unser erster Fall."
+    goto: szene-04
+
+  szene-04: { text: szene-04.md, mode: vorlesen, goto: szene-05 }     # Mechanik Fehlerjagd
+
+  szene-05:                                                           # erste, leichte Fehlerjagd
+    text: szene-05.md
+    mode: fehlerjagd
+    hints: true
+    proofread_errors:
+      - { shown: "erwsichen", correct: "erwischen", klasse: "hoerbar",         regel: "–", tipp: "Buchstaben vertauscht — genau lesen.", method: "lesen_oder_markieren" }
+      - { shown: "Felher",    correct: "Fehler",    klasse: "hoerbar",         regel: "–", tipp: "Buchstaben vertauscht — genau lesen.", method: "lesen_oder_markieren" }
+      - { shown: "fälscher",  correct: "Fälscher",  klasse: "grossschreibung", regel: 1,   tipp: "Nomen großschreiben (Regel 1).",      method: "markieren" }
+    goto: szene-06
+
+  szene-06: { text: szene-06.md, mode: vorlesen, next_case: fall-01 } # Abschluss -> Fall 1

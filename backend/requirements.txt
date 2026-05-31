@@ -1,0 +1,15 @@
+# FehlerJagd Backend — geplante Abhängigkeiten
+# Hinweis: torch/torchaudio ggf. über den passenden Index installieren,
+# z. B. CPU-Build:  pip install torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+
+fastapi
+uvicorn[standard]
+python-multipart      # Audio-Upload (multipart/form-data)
+sqlmodel              # SQLite-ORM (oder sqlalchemy)
+pyyaml                # Story-Graph (graph.yaml) laden
+python-dotenv         # .env / Provider-Konfiguration
+
+torch
+torchaudio
+soundfile             # WAV laden/resamplen
+numpy
