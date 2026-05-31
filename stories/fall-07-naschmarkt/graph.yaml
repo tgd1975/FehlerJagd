@@ -1,0 +1,43 @@
+# Trubel am Naschmarkt
+case_id: fall-07
+titel: "Trubel am Naschmarkt"
+schauplatz: "Naschmarkt"
+ziel_muster: ["vokallaenge", "ss"]
+start: szene-01
+
+nodes:
+  szene-01:
+    text: szene-01.md
+    mode: vorlesen
+    target_patterns: ["vokallaenge", "ss"]
+    choices:
+      - { label: "Frau Aslan fragen", goto: szene-02a }
+      - { label: "Am Nachbarstand schauen", goto: szene-02b }
+  szene-02a: { text: szene-02a.md, mode: vorlesen, goto: szene-03 }
+  szene-02b: { text: szene-02b.md, mode: vorlesen, goto: szene-03 }
+  szene-03:
+    text: szene-03.md
+    mode: vorlesen
+    target_patterns: ["vokallaenge", "ss"]
+    choices:
+      - { label: "Im Lager nachsehen", goto: szene-04a }
+      - { label: "Beim Lieferwagen fragen", goto: szene-04b }
+  szene-04a: { text: szene-04a.md, mode: vorlesen, goto: szene-05 }
+  szene-04b: { text: szene-04b.md, mode: vorlesen, goto: szene-05 }
+  szene-05:
+    text: szene-05.md
+    mode: fehlerjagd
+    proofread_errors:
+      - { shown: "Käes",  correct: "Käse",  klasse: "hoerbar",    regel: "–", tipp: "Buchstaben vertauscht — genau lesen.",     method: "lesen_oder_markieren" }
+      - { shown: "heis",  correct: "heiß",  klasse: "vokallaenge",regel: 8,   tipp: "Scharfes ß nach langem Vokal (Regel 8).", method: "markieren" }
+      - { shown: "Nus",   correct: "Nuss",  klasse: "vokallaenge",regel: 8,   tipp: "Kurzer Vokal → Doppel-Bremse ss (Regel 8).", method: "markieren" }
+      - { shown: "bilig", correct: "billig",klasse: "vokallaenge",regel: 8,   tipp: "Kurzer Vokal → Doppel-Bremse ll (Regel 8).", method: "markieren" }
+    goto: szene-06
+  szene-06:
+    text: szene-06.md
+    mode: vorlesen
+    choices:
+      - { label: "Beide Standler zusammenbringen", goto: szene-07 }
+      - { label: "Erst den Fahrer holen", goto: szene-07 }
+  szene-07: { text: szene-07.md, mode: vorlesen, goto: bonus-01 }
+  bonus-01: { text: bonus-01.md, mode: vorlesen, requires: all_green }

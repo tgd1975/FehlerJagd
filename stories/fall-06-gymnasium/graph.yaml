@@ -1,0 +1,44 @@
+# Rätsel am Rainergymnasium
+case_id: fall-06
+titel: "Rätsel am Rainergymnasium"
+schauplatz: "Rainergymnasium (Wien 5)"
+ziel_muster: ["grossschreibung", "dehnungs-h"]
+start: szene-01
+
+nodes:
+  szene-01:
+    text: szene-01.md
+    mode: vorlesen
+    target_patterns: ["grossschreibung", "dehnungs-h"]
+    choices:
+      - { label: "Marie fragen", goto: szene-02a }
+      - { label: "Im Sekretariat nachfragen", goto: szene-02b }
+  szene-02a: { text: szene-02a.md, mode: vorlesen, goto: szene-03 }
+  szene-02b: { text: szene-02b.md, mode: vorlesen, goto: szene-03 }
+  szene-03:
+    text: szene-03.md
+    mode: vorlesen
+    target_patterns: ["grossschreibung", "dehnungs-h"]
+    choices:
+      - { label: "Im Musiksaal vorbeischauen", goto: szene-04a }
+      - { label: "In den Pausenhof gehen", goto: szene-04b }
+  szene-04a: { text: szene-04a.md, mode: vorlesen, goto: szene-05 }
+  szene-04b: { text: szene-04b.md, mode: vorlesen, goto: szene-05 }
+  szene-05:
+    text: szene-05.md
+    mode: fehlerjagd
+    proofread_errors:
+      - { shown: "fest",            correct: "Fest",            klasse: "grossschreibung", regel: 1,   tipp: "Nomen großschreiben (Regel 1).",            method: "markieren" }
+      - { shown: "Rainergymansium", correct: "Rainergymnasium", klasse: "hoerbar",         regel: "–", tipp: "Buchstaben vertauscht — genau lesen.",       method: "lesen_oder_markieren" }
+      - { shown: "komt",            correct: "kommt",           klasse: "vokallaenge",     regel: 8,   tipp: "Kurzer Vokal → Doppel-Bremse mm (Regel 8).", method: "markieren" }
+      - { shown: "Lerer",           correct: "Lehrer",          klasse: "dehnungs-h",      regel: "–", tipp: "Langes e mit Dehnungs-h.",                   method: "markieren" }
+      - { shown: "schule",          correct: "Schule",          klasse: "grossschreibung", regel: 1,   tipp: "Nomen großschreiben (Regel 1).",            method: "markieren" }
+    goto: szene-06
+  szene-06:
+    text: szene-06.md
+    mode: vorlesen
+    choices:
+      - { label: "Die zwei Erstklässler freundlich fragen", goto: szene-07 }
+      - { label: "Erst Marie um Rat fragen", goto: szene-07 }
+  szene-07: { text: szene-07.md, mode: vorlesen, goto: bonus-01 }
+  bonus-01: { text: bonus-01.md, mode: vorlesen, requires: all_green }

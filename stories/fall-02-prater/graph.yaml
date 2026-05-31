@@ -1,0 +1,43 @@
+# Der Fall im Wiener Prater
+case_id: fall-02
+titel: "Der Fall im Wiener Prater"
+schauplatz: "Wiener Prater"
+ziel_muster: ["dehnungs-h", "ck"]
+start: szene-01
+
+nodes:
+  szene-01:
+    text: szene-01.md
+    mode: vorlesen
+    target_patterns: ["dehnungs-h", "ck"]
+    choices:
+      - { label: "Den Schausteller fragen", goto: szene-02a }
+      - { label: "Bei der Geisterbahn suchen", goto: szene-02b }
+  szene-02a: { text: szene-02a.md, mode: vorlesen, goto: szene-03 }
+  szene-02b: { text: szene-02b.md, mode: vorlesen, goto: szene-03 }
+  szene-03:
+    text: szene-03.md
+    mode: vorlesen
+    target_patterns: ["dehnungs-h", "ck"]
+    choices:
+      - { label: "Bei der Schießbude fragen", goto: szene-04a }
+      - { label: "Gleich zum Lager gehen", goto: szene-04b }
+  szene-04a: { text: szene-04a.md, mode: vorlesen, goto: szene-05 }
+  szene-04b: { text: szene-04b.md, mode: vorlesen, goto: szene-05 }
+  szene-05:
+    text: szene-05.md
+    mode: fehlerjagd
+    proofread_errors:
+      - { shown: "Geisterban", correct: "Geisterbahn", klasse: "dehnungs-h", regel: "–", tipp: "Bahn mit Dehnungs-h.",               method: "markieren" }
+      - { shown: "fon",        correct: "von",         klasse: "v/f",        regel: 4,   tipp: "von ist ein V-Wort (Regel 4).",        method: "markieren" }
+      - { shown: "Riesenrda",  correct: "Riesenrad",   klasse: "hoerbar",    regel: "–", tipp: "Buchstaben vertauscht — genau lesen.", method: "lesen_oder_markieren" }
+      - { shown: "Glük",       correct: "Glück",       klasse: "vokallaenge",regel: 8,   tipp: "Kurzer Vokal → ck (Regel 8).",         method: "markieren" }
+    goto: szene-06
+  szene-06:
+    text: szene-06.md
+    mode: vorlesen
+    choices:
+      - { label: "Den jungen Mann freundlich fragen", goto: szene-07 }
+      - { label: "Erst Herrn Novak holen", goto: szene-07 }
+  szene-07: { text: szene-07.md, mode: vorlesen, goto: bonus-01 }
+  bonus-01: { text: bonus-01.md, mode: vorlesen, requires: all_green }

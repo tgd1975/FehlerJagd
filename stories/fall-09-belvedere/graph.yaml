@@ -1,0 +1,43 @@
+# Der Kuhschwanz im Klimt-Bild
+case_id: fall-09
+titel: "Der Kuhschwanz im Klimt-Bild"
+schauplatz: "Oberes Belvedere (Klimt-Saal)"
+ziel_muster: ["ver-vor", "auslaut"]
+start: szene-01
+
+nodes:
+  szene-01:
+    text: szene-01.md
+    mode: vorlesen
+    target_patterns: ["ver-vor", "auslaut"]
+    choices:
+      - { label: "Die Museumsführerin fragen", goto: szene-02a }
+      - { label: "Das Bild genau betrachten", goto: szene-02b }
+  szene-02a: { text: szene-02a.md, mode: vorlesen, goto: szene-03 }
+  szene-02b: { text: szene-02b.md, mode: vorlesen, goto: szene-03 }
+  szene-03:
+    text: szene-03.md
+    mode: vorlesen
+    target_patterns: ["ver-vor", "auslaut"]
+    choices:
+      - { label: "Weiter im Klimt-Saal schauen", goto: szene-04a }
+      - { label: "In den Garten zu Frieda", goto: szene-04b }
+  szene-04a: { text: szene-04a.md, mode: vorlesen, goto: szene-05 }
+  szene-04b: { text: szene-04b.md, mode: vorlesen, goto: szene-05 }
+  szene-05:
+    text: szene-05.md
+    mode: fehlerjagd
+    proofread_errors:
+      - { shown: "Bilt",     correct: "Bild",     klasse: "auslaut",  regel: 3,   tipp: "Verlängern: Bilder → d (Regel 3).",     method: "markieren" }
+      - { shown: "Kilmt",    correct: "Klimt",    klasse: "hoerbar",  regel: "–", tipp: "Buchstaben vertauscht — genau lesen.", method: "lesen_oder_markieren" }
+      - { shown: "forne",    correct: "vorne",    klasse: "ver/vor",  regel: 7,   tipp: "vorne mit v (Regel 7).",               method: "markieren" }
+      - { shown: "ferloren", correct: "verloren", klasse: "ver/vor",  regel: 7,   tipp: "Vorsilbe ver-, immer mit v (Regel 7).", method: "markieren" }
+    goto: szene-06
+  szene-06:
+    text: szene-06.md
+    mode: vorlesen
+    choices:
+      - { label: "Das Kind aus dem Kunstklub fragen", goto: szene-07 }
+      - { label: "Erst Frau Wagner holen", goto: szene-07 }
+  szene-07: { text: szene-07.md, mode: vorlesen, goto: bonus-01 }
+  bonus-01: { text: bonus-01.md, mode: vorlesen, requires: all_green }

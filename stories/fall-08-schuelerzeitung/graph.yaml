@@ -1,0 +1,44 @@
+# Aufruhr in der Schülerzeitung
+case_id: fall-08
+titel: "Aufruhr in der Schülerzeitung"
+schauplatz: "Redaktion der Schülerzeitung"
+ziel_muster: ["das-dass", "komma"]
+start: szene-01
+
+nodes:
+  szene-01:
+    text: szene-01.md
+    mode: vorlesen
+    target_patterns: ["das-dass", "komma"]
+    choices:
+      - { label: "Die Redaktion fragen", goto: szene-02a }
+      - { label: "Am Computer nachsehen", goto: szene-02b }
+  szene-02a: { text: szene-02a.md, mode: vorlesen, goto: szene-03 }
+  szene-02b: { text: szene-02b.md, mode: vorlesen, goto: szene-03 }
+  szene-03:
+    text: szene-03.md
+    mode: vorlesen
+    target_patterns: ["das-dass", "komma"]
+    choices:
+      - { label: "Im Redaktionsraum nachsehen", goto: szene-04a }
+      - { label: "In die Druckerei gehen", goto: szene-04b }
+  szene-04a: { text: szene-04a.md, mode: vorlesen, goto: szene-05 }
+  szene-04b: { text: szene-04b.md, mode: vorlesen, goto: szene-05 }
+  szene-05:
+    text: szene-05.md
+    mode: fehlerjagd
+    proofread_errors:
+      - { shown: "das",      correct: "dass",    klasse: "das/dass",        regel: 6,   tipp: "Ersatzprobe: kein dieses → dass (Regel 6).", method: "markieren" }
+      - { shown: "zeitung",  correct: "Zeitung", klasse: "grossschreibung", regel: 1,   tipp: "Nomen großschreiben (Regel 1).",            method: "markieren" }
+      - { shown: "ist weil", correct: "ist, weil",klasse: "komma",          regel: 2,   tipp: "Vor 'weil' ein Beistrich (Regel 2).",        method: "markieren_luecke" }
+      - { shown: "artikel",  correct: "Artikel", klasse: "grossschreibung", regel: 1,   tipp: "Nomen großschreiben (Regel 1).",            method: "markieren" }
+      - { shown: "foll",     correct: "voll",    klasse: "v/f",             regel: 4,   tipp: "voll ist ein V-Wort (Regel 4).",            method: "markieren" }
+    goto: szene-06
+  szene-06:
+    text: szene-06.md
+    mode: vorlesen
+    choices:
+      - { label: "Den schüchternen Buben vorsichtig fragen", goto: szene-07 }
+      - { label: "Erst den Brief vorlesen", goto: szene-07 }
+  szene-07: { text: szene-07.md, mode: vorlesen, goto: bonus-01 }
+  bonus-01: { text: bonus-01.md, mode: vorlesen, requires: all_green }

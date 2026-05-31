@@ -1,0 +1,43 @@
+# Die verschwundene Mehlspeise
+case_id: fall-03
+titel: "Die verschwundene Mehlspeise"
+schauplatz: "Wiener Konditorei"
+ziel_muster: ["ss", "tz"]
+start: szene-01
+
+nodes:
+  szene-01:
+    text: szene-01.md
+    mode: vorlesen
+    target_patterns: ["ss", "tz"]
+    choices:
+      - { label: "Den Lehrling fragen", goto: szene-02a }
+      - { label: "Die Backstube absuchen", goto: szene-02b }
+  szene-02a: { text: szene-02a.md, mode: vorlesen, goto: szene-03 }
+  szene-02b: { text: szene-02b.md, mode: vorlesen, goto: szene-03 }
+  szene-03:
+    text: szene-03.md
+    mode: vorlesen
+    target_patterns: ["ss", "tz"]
+    choices:
+      - { label: "Im Kühlraum nachsehen", goto: szene-04a }
+      - { label: "Hinter den Kasten schauen", goto: szene-04b }
+  szene-04a: { text: szene-04a.md, mode: vorlesen, goto: szene-05 }
+  szene-04b: { text: szene-04b.md, mode: vorlesen, goto: szene-05 }
+  szene-05:
+    text: szene-05.md
+    mode: fehlerjagd
+    proofread_errors:
+      - { shown: "süs",         correct: "süß",         klasse: "vokallaenge", regel: 8,   tipp: "Scharfes ß nach langem Vokal (Regel 8).", method: "markieren" }
+      - { shown: "Brod",        correct: "Brot",        klasse: "auslaut",     regel: 3,   tipp: "Verlängern: Brote → t (Regel 3).",        method: "markieren" }
+      - { shown: "Plaz",        correct: "Platz",       klasse: "vokallaenge", regel: 8,   tipp: "Kurzer Vokal → tz (Regel 8).",            method: "markieren" }
+      - { shown: "Konditorie",  correct: "Konditorei",  klasse: "hoerbar",     regel: "–", tipp: "Buchstaben vertauscht — genau lesen.",     method: "lesen_oder_markieren" }
+    goto: szene-06
+  szene-06:
+    text: szene-06.md
+    mode: vorlesen
+    choices:
+      - { label: "Tobias freundlich ansprechen", goto: szene-07 }
+      - { label: "Erst das Rezept zeigen", goto: szene-07 }
+  szene-07: { text: szene-07.md, mode: vorlesen, goto: bonus-01 }
+  bonus-01: { text: bonus-01.md, mode: vorlesen, requires: all_green }

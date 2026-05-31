@@ -1,0 +1,43 @@
+# Aufregung im Tiergarten Schönbrunn
+case_id: fall-04
+titel: "Aufregung im Tiergarten Schönbrunn"
+schauplatz: "Tiergarten Schönbrunn"
+ziel_muster: ["ie", "doppelvokal"]
+start: szene-01
+
+nodes:
+  szene-01:
+    text: szene-01.md
+    mode: vorlesen
+    target_patterns: ["ie", "doppelvokal"]
+    choices:
+      - { label: "Die Tierpflegerin fragen", goto: szene-02a }
+      - { label: "Das leere Gehege untersuchen", goto: szene-02b }
+  szene-02a: { text: szene-02a.md, mode: vorlesen, goto: szene-03 }
+  szene-02b: { text: szene-02b.md, mode: vorlesen, goto: szene-03 }
+  szene-03:
+    text: szene-03.md
+    mode: vorlesen
+    target_patterns: ["ie", "doppelvokal"]
+    choices:
+      - { label: "Im Winterhaus nachsehen", goto: szene-04a }
+      - { label: "Zur Tierambulanz gehen", goto: szene-04b }
+  szene-04a: { text: szene-04a.md, mode: vorlesen, goto: szene-05 }
+  szene-04b: { text: szene-04b.md, mode: vorlesen, goto: szene-05 }
+  szene-05:
+    text: szene-05.md
+    mode: fehlerjagd
+    proofread_errors:
+      - { shown: "das",   correct: "dass",  klasse: "das/dass",   regel: 6,   tipp: "Ersatzprobe: kein dieses → dass (Regel 6).", method: "markieren" }
+      - { shown: "Tir",   correct: "Tier",  klasse: "ie",         regel: 5,   tipp: "Langes i schreibt man ie (Regel 5).",        method: "markieren" }
+      - { shown: "Zo",    correct: "Zoo",   klasse: "doppelvokal",regel: "–", tipp: "Doppelter Vokal: oo.",                        method: "markieren" }
+      - { shown: "Tiegr", correct: "Tiger", klasse: "hoerbar",    regel: "–", tipp: "Buchstaben vertauscht — genau lesen.",        method: "lesen_oder_markieren" }
+    goto: szene-06
+  szene-06:
+    text: szene-06.md
+    mode: vorlesen
+    choices:
+      - { label: "Die Tierärztin fragen", goto: szene-07 }
+      - { label: "Erst Frau Huber holen", goto: szene-07 }
+  szene-07: { text: szene-07.md, mode: vorlesen, goto: bonus-01 }
+  bonus-01: { text: bonus-01.md, mode: vorlesen, requires: all_green }
