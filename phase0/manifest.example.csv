@@ -1,0 +1,14 @@
+clip,kind,text,shown,label,note
+# So sieht ein echtes Manifest aus. Kopiere es nach data/manifest.csv und
+# trage deine Aufnahmen ein. WAVs liegen unter data/ (per .gitignore geschützt).
+# kind=vorlesen   -> text = Soll-Satz,        label = fluent | stocked
+# kind=fehlerjagd -> text = RICHTIGES Wort,   shown = Falschschreibung,
+#                    label = literal | autocorrected  (nur Klasse 'hoerbar'!)
+audio/flu-01.wav,vorlesen,Im Regal stehen viele Bücher,,fluent,flüssig gelesen
+audio/flu-02.wav,vorlesen,Die alte Bibliothek war ganz still,,fluent,
+audio/sto-01.wav,vorlesen,Im Regal stehen viele Bücher,,stocked,stockend/zögernd
+audio/sto-02.wav,vorlesen,Die alte Bibliothek war ganz still,,stocked,
+audio/tisch-literal.wav,fehlerjagd,Tisch,Tihsc,literal,Falschschreibung literal gelesen
+audio/tisch-auto.wav,fehlerjagd,Tisch,Tihsc,autocorrected,still zu Tisch korrigiert
+audio/buch-literal.wav,fehlerjagd,Buch,Buhc,literal,
+audio/buch-auto.wav,fehlerjagd,Buch,Buhc,autocorrected,

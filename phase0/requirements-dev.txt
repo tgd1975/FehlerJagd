@@ -1,0 +1,4 @@
+# Phase 0 – Entwicklungs-/Testabhängigkeiten.
+# Die Kern-Tests laufen ohne torch (das torch-Backend wird gemockt bzw. der
+# Smoke-Test übersprungen).
+pytest
