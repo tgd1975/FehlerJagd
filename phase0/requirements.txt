@@ -1,0 +1,13 @@
+# Phase 0 – Laufzeit-Abhängigkeiten.
+#
+# Der KERN (Kalibrierung, Gating, Report, Selbsttest, Manifest) braucht NICHTS
+# außer der Python-Stdlib und läuft sofort:  python -m fjp0 selftest
+#
+# Die folgenden Pakete werden NUR für die ECHTE akustische Bewertung (torch-
+# Backend) auf echten Aufnahmen gebraucht. torch/torchaudio ggf. über den CPU-
+# Index installieren:
+#   pip install torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+torch
+torchaudio
+soundfile
+numpy
