@@ -72,12 +72,13 @@ Grundsatz: warme, leicht entsättigte Töne; viel Creme als „Luft"; Koralle nu
 - **Signatur-Requisite: runde Lupe.** Trägt die Fehlerjagd.
 - Ausdruck: aufmerksam, ruhig, leichtes Lächeln; Kopf beim Beobachten leicht geneigt.
 
-### 3.2 Ben — 11 J., Technik & Humor · **Farbcode SENF**
+### 3.2 Ben — 11 J., einfallsreich & humorvoll · **Farbcode SENF**
 - Etwas größer, lebhaft, offene/dynamische Posen.
 - Kurze, leicht **lockige dunkle Haare**; **runde Brille** (wie am Cover).
-- **Senf-Shirt/Pulli**, kleiner **Gadget-Rucksack**, evtl. Taschenlampe am Gürtel.
-- **Signatur-Requisite: Notizheft + Stift** (er notiert die Hinweise).
-- Ausdruck: aufgeweckt, breites Grinsen, humorvoll.
+- **Senf-Shirt/Pulli**, einfacher Rucksack — **normales Detektiv-Kram** (keine Hightech-Gadgets).
+- **Signatur-Requisite: Notizheft + Stift** (er kritzelt Einfälle und Hinweise hinein); evtl. eine gewöhnliche Taschenlampe.
+- Wesen: der **Ideen- und Plänemacher** — improvisiert, hat schnell einen Einfall, lockert mit einem Spruch die Lage.
+- Ausdruck: aufgeweckt, breites Grinsen.
 
 ### 3.3 Frieda — die clevere Dackeldame
 - **Kurzhaardackel**, rotbraun/tan; langer Körper, kurze Beine, **lange Schlappohren**, wache Augen, ausgeprägte Schnauze.

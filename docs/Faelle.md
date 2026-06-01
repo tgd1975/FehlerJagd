@@ -5,7 +5,7 @@ Neun ausgearbeitete Detektivfälle für **FehlerJagd**, im **Ton von „Die drei
 **Hook → 2–3 konvergierende Entscheidungen → Fälscher-Notiz (Fehlerjagd) → Auflösung → optionale Bonus-Szene.**
 
 - **Sprache:** österreichisches Standarddeutsch (kein Bundesdeutsch, kein Dialekt).
-- **Rollen:** **Mia** trägt die Fehlerjagd; **Ben** liefert Technik, fragt aus, sorgt für Humor; **Frieda** (Dackel-Dame) erschnüffelt Spuren.
+- **Rollen:** **Mia** trägt die Fehlerjagd; **Ben** hat die Einfälle, spricht Leute an und sorgt für Humor; **Frieda** (Dackel-Dame) erschnüffelt Spuren.
 - **Gewichtung:** Die Notizen sind **phonetik-dominant** (Fokus laut Konzept, wegen des erhofften Aha-Effekts); die nicht-phonetischen Punkte sind **eingestreut**, und **Fall 8 & 9** widmen sich ihnen stärker. **Alle Punkte sind gleichwertig** — Fokus betrifft nur die Übungs-Dosis.
 
 ## Fehlerklassen & Methode

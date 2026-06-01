@@ -147,7 +147,7 @@ Heimeliger Kinder-Krimi im **Ton von „Die drei !!!"** — warmherzig, freundsc
 ### Die Ermittlerinnen: Mia, Ben & Frieda (eigenes Trio, „Club der Spürnasen")
 Ein **eigenes Detektiv-Trio** im Geist der !!! — Stärken passend zu den zwei Mechaniken:
 - **Mia (10)** — Anführerin & Identifikationsfigur, scharfe Beobachterin, führt das **Spürnasen-Logbuch**. → **trägt die Fehlerjagd** (entdeckt, was am Wortbild nicht stimmt).
-- **Ben (11)** — der Tüftler: Gadgets, Technik, Humor; öffnet notfalls mit Werkzeug ein Schloss. → **technische Hinweise, Menschen ausfragen, Auflockerung.**
+- **Ben (11)** — einfallsreich und humorvoll: der Ideen- und Plänemacher, improvisiert, spricht Leute an und lockert auf. → **Einfälle/Pläne, Menschen ansprechen, Auflockerung.**
 - **Frieda** — clevere Dackel-Dame mit Wundernase; spricht nicht, hält die Welt geerdet. → **Geruchsspuren & körperliche Hinweise; im Tiergarten die Tier-Verbindung.**
 - **Erwachsene unterstützen — gelöst wird vom Trio.**
 

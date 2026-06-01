@@ -19,7 +19,7 @@ Ich habe zwei Dateien angehängt — bitte als **Quelle der Wahrheit** behandeln
 
 ## Die Figuren (immer on-model & farbcodiert)
 - **Mia, 10 — Beobachterin, Farbcode TEAL.** Schulterlanges dunkelbraunes Haar (seitlich teal Spange), teal Kapuzenjacke, **Lupe** in der Hand. Aufmerksam, ruhig, leichtes Lächeln, Kopf beim Beobachten leicht geneigt.
-- **Ben, 11 — Technik & Humor, Farbcode SENF.** Kurze, leicht lockige dunkle Haare, **runde Brille**, Senf-Shirt, kleiner Gadget-Rucksack, **Notizheft + Stift**. Aufgeweckt, breites Grinsen.
+- **Ben, 11 — einfallsreich & humorvoll, Farbcode SENF.** Der Ideen- und Plänemacher (improvisiert, „probieren wir das"). Kurze, leicht lockige dunkle Haare, **runde Brille**, Senf-Shirt; **normales Detektiv-Kram** (Notizheft + Stift, evtl. eine gewöhnliche Taschenlampe — keine Hightech-Gadgets). Aufgeweckt, breites Grinsen.
 - **Frieda — clevere Dackeldame.** Kurzhaardackel, rotbraun, lange Schlappohren, **koralle Halsband**. Signatur-Pose: Nase am Boden, schnüffelnd; Schwanz aufgestellt bei Aufregung.
 - **Marie — Gast (nur Fall 6), ~12–13.** Freundliche Siebtklässlerin, etwas größer, warmer Mentor-Typ, koralle Akzent. (Leichtes Spec, ein Auftritt.)
 
