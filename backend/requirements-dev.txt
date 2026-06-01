@@ -1,0 +1,4 @@
+# Backend – Test-/Entwicklungsabhängigkeiten.
+# Die Tests laufen ohne torch (Stub-Scoring) gegen eine temporäre SQLite.
+pytest
+httpx                 # FastAPI TestClient

@@ -1,14 +1,16 @@
-# FehlerJagd Backend — geplante Abhängigkeiten
-# Hinweis: torch/torchaudio ggf. über den passenden Index installieren,
-# z. B. CPU-Build:  pip install torch torchaudio --index-url https://download.pytorch.org/whl/cpu
-
+# FehlerJagd Backend.
+#
+# KERN (immer nötig – reicht für FJ_SCORING=stub, also bis zur Phase-0-Freigabe):
 fastapi
 uvicorn[standard]
 python-multipart      # Audio-Upload (multipart/form-data)
-sqlmodel              # SQLite-ORM (oder sqlalchemy)
+sqlmodel              # SQLite-ORM
 pyyaml                # Story-Graph (graph.yaml) laden
 python-dotenv         # .env / Provider-Konfiguration
 
+# ECHTES lokales Scoring (nur für FJ_SCORING=local; nutzt phase0/fjp0).
+# torch/torchaudio ggf. über den CPU-Index installieren:
+#   pip install torch torchaudio --index-url https://download.pytorch.org/whl/cpu
 torch
 torchaudio
 soundfile             # WAV laden/resamplen

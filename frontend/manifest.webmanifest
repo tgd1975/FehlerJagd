@@ -1,0 +1,14 @@
+{
+  "name": "FehlerJagd – Club der Spürnasen",
+  "short_name": "FehlerJagd",
+  "description": "Detektiv-Lern-App: Vorlesen & Fehlerjagd.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f6f1e7",
+  "theme_color": "#1f6f78",
+  "lang": "de-AT",
+  "icons": [
+    { "src": "./icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
