@@ -16,6 +16,11 @@ export async function renderCases(go) {
   mount(
     el("h2", {}, "Wähle einen Fall"),
     el("p", { class: "place" }, "Mia, Ben & Frieda warten auf dich."),
+    el("div", { class: "row" }, [
+      el("button", { class: "btn ghost", onClick: () => go.avatar() }, "🕵️ Ausrüstung"),
+      el("button", { class: "btn ghost", onClick: () => go.dashboard() }, "📊 Eltern-Dashboard"),
+      el("button", { class: "btn ghost", onClick: () => go.profiles() }, "Profil wechseln"),
+    ]),
     el("div", { class: "grid" }, cards),
   );
 }

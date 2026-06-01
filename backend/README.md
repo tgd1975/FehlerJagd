@@ -35,8 +35,14 @@ pytest                                    # 39 Tests, ohne torch, In-Memory-/Tem
 | GET  | `/cases/{id}/scene/{sid}` | Szene (Lösungen ausgeblendet; bei Fehlerjagd inkl. Tokens) |
 | POST | `/scene/next` | Navigation (Choices, linear, Bonus-Gate, Fall-Wechsel) |
 | POST | `/proofread/check` | **deterministische** Fehlerjagd-Prüfung + Auflösung mit Regel-Bezug |
-| POST | `/score/fluency` | Flüssigkeits-Scoring (Mechanik A) über den Provider |
-| POST/GET/PUT | `/profiles`, `/progress`, `/points`, `/rewards/{id}` | Persistenz |
+| POST | `/score/fluency` | Flüssigkeits-Scoring (Mechanik A) + sanftes Gating (`can_continue`, `earned_bonus`) |
+| POST | `/score/literal` | lautgetreue Fehlerprüfung (Mechanik B, nur hörbare Fehler) |
+| POST | `/tts/word` | Wort-Vorsprechen (pluggable; Default `browser` = Web Speech API) |
+| POST/GET/PUT | `/profiles`, `/progress`, `/points` | Persistenz |
+| POST/GET | `/rewards/scene-complete`, `/rewards/proofread`, `/rewards/catalog/{id}`, `/avatar/equip` | Punkte, Pinnwand, Avatar |
+| GET | `/dashboard/{id}` | Eltern-Dashboard: übersehene Regel-Kategorien + Lese-Überblick |
+
+Zusätzliche Werkzeuge: `python lint_stories.py --coverage` (Validierung + Merkblatt-Abdeckung), CI unter `.github/workflows/ci.yml`.
 
 ## Architektur
 

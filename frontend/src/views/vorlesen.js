@@ -2,6 +2,7 @@
 
 import { api } from "../api.js";
 import { el, mount } from "../ui.js";
+import { speak } from "../speak.js";
 
 const COLOR_CLASS = { "grün": "green", "gelb": "yellow", "rot": "red", "ungeprüft": "unrated" };
 
@@ -21,10 +22,17 @@ export function renderVorlesen(scene, go, ctx) {
     const colored = result.words;
     const spans = scene.text.split(/\s+/).filter(Boolean).map((w, i) => {
       const cls = COLOR_CLASS[colored[i]?.color] || "unrated";
-      return el("span", { class: "w " + cls }, w + " ");
+      const span = el("span", { class: "w " + cls }, w + " ");
+      // Mikro-Lernschleife: gelbes/rotes Wort antippen → korrekte Aussprache hören.
+      if (cls === "yellow" || cls === "red") {
+        span.title = "Antippen zum Anhören";
+        span.addEventListener("click", () => speak(w.replace(/[^0-9A-Za-zÄÖÜäöüß-]/g, "")));
+      }
+      return span;
     });
     wordsBox.replaceChildren(...spans);
     allGreen = result.all_green;
+    if (result.gate_message) status.textContent = result.gate_message;
     renderNav();
   }
 

@@ -145,3 +145,13 @@ button.btn:disabled { opacity: .5; cursor: not-allowed; }
 .loading { color: var(--muted); }
 a.back { color: var(--petrol-dark); cursor: pointer; text-decoration: underline; }
 .points { font-weight: 700; }
+
+.name-input { font: inherit; padding: 0.6rem 0.8rem; border-radius: 999px;
+              border: 2px solid var(--sand); }
+.speakable { cursor: pointer; text-decoration: underline dotted; }
+.speakable:hover { color: var(--petrol-dark); }
+
+table.dash { width: 100%; border-collapse: collapse; margin: 0.5rem 0 1rem; }
+table.dash th, table.dash td { text-align: left; padding: 0.4rem 0.6rem;
+              border-bottom: 1px solid var(--sand); }
+table.dash th { color: var(--petrol-dark); }

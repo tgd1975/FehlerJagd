@@ -110,3 +110,69 @@ def test_profile_and_progress_flow(client):
 
     prof = client.post("/points", json={"profile_id": pid, "delta": 50}).json()
     assert prof["points"] == 50
+
+
+def test_rewards_avatar_and_dashboard_flow(client):
+    pid = client.post("/profiles", json={"name": "Mia"}).json()["id"]
+
+    # Szene abschließen → Punkte + Pinnwand-Panel.
+    r = client.post("/rewards/scene-complete", json={
+        "profile_id": pid, "case_id": "fall-01", "scene_id": "szene-01",
+        "all_green": True,
+    }).json()
+    assert r["awarded"] == 15
+    assert r["new_unlocks"] == ["panel:fall-01:szene-01"]
+    # Idempotent: gleiches Panel nicht doppelt.
+    r2 = client.post("/rewards/scene-complete", json={
+        "profile_id": pid, "case_id": "fall-01", "scene_id": "szene-01",
+    }).json()
+    assert r2["new_unlocks"] == []
+
+    # Fehlerjagd-Belohnung (perfekt).
+    client.post("/rewards/proofread", json={
+        "profile_id": pid, "found_count": 4, "total": 4,
+    })
+
+    # Avatar-Katalog: jetzt genug Punkte für die Lupe.
+    cat = client.get(f"/rewards/catalog/{pid}").json()
+    lupe = next(c for c in cat if c["item_key"] == "lupe")
+    assert lupe["affordable"] is True and lupe["equipped"] is False
+
+    eq = client.post("/avatar/equip", json={"profile_id": pid, "item_key": "lupe"}).json()
+    assert "lupe" in eq["avatar_state"]
+
+    # Dashboard: Fehlerjagd-Verlauf wird über profile_id mitgeschrieben.
+    client.post("/proofread/check", json={
+        "case_id": "fall-01", "scene_id": "szene-05",
+        "marked_indices": [], "profile_id": pid,
+    })
+    dash = client.get(f"/dashboard/{pid}").json()
+    assert dash["profile_id"] == pid
+    klassen = {k["klasse"] for k in dash["proofread_by_klasse"]}
+    assert "vokallaenge" in klassen
+    # Nichts markiert → alles übersehen → most_missed nicht leer.
+    assert dash["most_missed"]
+
+
+def test_score_literal_stub(client):
+    r = client.post("/score/literal", data={"shown": "Tihsc", "correct": "Tisch"})
+    assert r.status_code == 200
+    body = r.json()
+    assert body["verdict"] == "ungeprüft" and body["calibrated"] is False
+
+
+def test_fluency_gate_fields(client):
+    body = client.post("/score/fluency", data={
+        "expected_text": "Im Regal stehen viele Bücher",
+    }).json()
+    # Stub → unkalibriert → sanft weiter.
+    assert body["can_continue"] is True
+    assert body["earned_bonus"] is False
+    assert "gate_message" in body
+
+
+def test_tts_word_browser(client):
+    body = client.post("/tts/word", json={"word": "Bücher"}).json()
+    assert body["mode"] == "browser"
+    assert body["text"] == "Bücher"
+    assert body["lang"] == "de-AT"

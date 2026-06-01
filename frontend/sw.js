@@ -1,7 +1,7 @@
 // Service Worker – cacht nur die App-Shell (same-origin). API-Aufrufe ans
 // Backend laufen immer übers Netz (kein Caching von Scores/Inhalten hier).
 
-const CACHE = "fehlerjagd-shell-v1";
+const CACHE = "fehlerjagd-shell-v2";
 const SHELL = [
   "./",
   "./index.html",
@@ -11,9 +11,13 @@ const SHELL = [
   "./src/app.js",
   "./src/api.js",
   "./src/ui.js",
+  "./src/speak.js",
   "./src/views/cases.js",
   "./src/views/vorlesen.js",
   "./src/views/fehlerjagd.js",
+  "./src/views/profiles.js",
+  "./src/views/avatar.js",
+  "./src/views/dashboard.js",
 ];
 
 self.addEventListener("install", (e) => {

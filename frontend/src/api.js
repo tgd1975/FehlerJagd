@@ -33,6 +33,27 @@ export const api = {
   proofread: (body) =>
     jsonFetch("/proofread/check", { method: "POST", body: JSON.stringify(body) }),
 
+  // Profile / Fortschritt
+  listProfiles: () => jsonFetch("/profiles"),
+  createProfile: (name) =>
+    jsonFetch("/profiles", { method: "POST", body: JSON.stringify({ name }) }),
+  saveProgress: (body) =>
+    jsonFetch("/progress", { method: "PUT", body: JSON.stringify(body) }),
+
+  // Belohnungen / Avatar
+  rewardScene: (body) =>
+    jsonFetch("/rewards/scene-complete", { method: "POST", body: JSON.stringify(body) }),
+  rewardProofread: (body) =>
+    jsonFetch("/rewards/proofread", { method: "POST", body: JSON.stringify(body) }),
+  catalog: (profileId) => jsonFetch(`/rewards/catalog/${profileId}`),
+  equip: (body) =>
+    jsonFetch("/avatar/equip", { method: "POST", body: JSON.stringify(body) }),
+
+  // Dashboard / TTS
+  dashboard: (profileId) => jsonFetch(`/dashboard/${profileId}`),
+  ttsWord: (word) =>
+    jsonFetch("/tts/word", { method: "POST", body: JSON.stringify({ word }) }),
+
   // Flüssigkeit: Audio als multipart (optional – Stub ignoriert es).
   async scoreFluency({ expectedText, caseId, sceneId, profileId, audioBlob }) {
     const fd = new FormData();

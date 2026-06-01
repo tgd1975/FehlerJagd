@@ -13,10 +13,12 @@ import tempfile
 from fastapi import APIRouter, Depends, File, Form, UploadFile
 from sqlmodel import Session
 
+from ..config import get_settings
 from ..db import get_session
 from ..models import ScoreHistory
 from ..registry import get_scoring_provider
-from ..schemas import FluencyResponse, WordFluencyOut
+from ..rewards import evaluate_gate
+from ..schemas import FluencyResponse, LiteralResponse, WordFluencyOut
 
 router = APIRouter(prefix="/score", tags=["scoring"])
 
@@ -57,11 +59,43 @@ def score_fluency(
             ))
         session.commit()
 
+    s = get_settings()
+    gate = evaluate_gate(
+        result.clip_score, calibrated=result.calibrated,
+        min_advance=s.min_advance, green=s.green, all_green=result.all_green,
+    )
     return FluencyResponse(
         provider=result.provider,
         calibrated=result.calibrated,
         clip_score=result.clip_score,
         all_green=result.all_green,
+        can_continue=gate.can_continue,
+        earned_bonus=gate.earned_bonus,
+        gate_message=gate.message,
         words=[WordFluencyOut(word=w.word, score=w.score, color=w.color)
                for w in result.words],
+    )
+
+
+@router.post("/literal", response_model=LiteralResponse)
+def score_literal(
+    shown: str = Form(...),
+    correct: str = Form(...),
+    audio: UploadFile | None = File(None),
+) -> LiteralResponse:
+    """Lautgetreue Fehlerprüfung (Mechanik B, nur hörbare Fehler).
+
+    Über akustische Distanz zum richtigen Wort – NICHT per ASR. Solange der
+    Stub aktiv ist, kommt 'ungeprüft' zurück.
+    """
+    provider = get_scoring_provider()
+    path = _save_temp(audio)
+    try:
+        res = provider.score_literal(path or "", shown, correct)
+    finally:
+        if path and os.path.exists(path):
+            os.remove(path)
+    return LiteralResponse(
+        shown=res.shown, correct=res.correct, score=res.score,
+        verdict=res.verdict, provider=res.provider, calibrated=res.calibrated,
     )

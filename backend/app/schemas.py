@@ -121,4 +121,16 @@ class FluencyResponse(BaseModel):
     calibrated: bool
     clip_score: float | None
     all_green: bool
+    can_continue: bool
+    earned_bonus: bool
+    gate_message: str
     words: list[WordFluencyOut]
+
+
+class LiteralResponse(BaseModel):
+    shown: str
+    correct: str
+    score: float | None
+    verdict: str
+    provider: str
+    calibrated: bool

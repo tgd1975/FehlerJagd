@@ -15,7 +15,16 @@ from fastapi.middleware.cors import CORSMiddleware
 from .config import get_settings
 from .db import init_db
 from .registry import get_cases, get_scoring_provider
-from .routers import cases, navigation, progress, proofread, scoring
+from .routers import (
+    cases,
+    dashboard,
+    navigation,
+    progress,
+    proofread,
+    rewards,
+    scoring,
+    tts,
+)
 
 
 @asynccontextmanager
@@ -41,6 +50,9 @@ app.include_router(navigation.router)
 app.include_router(proofread.router)
 app.include_router(scoring.router)
 app.include_router(progress.router)
+app.include_router(rewards.router)
+app.include_router(dashboard.router)
+app.include_router(tts.router)
 
 
 @app.get("/health", tags=["meta"])

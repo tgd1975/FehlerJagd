@@ -3,6 +3,7 @@
 
 import { api } from "../api.js";
 import { el, mount } from "../ui.js";
+import { speak } from "../speak.js";
 
 export function renderFehlerjagd(scene, go, ctx) {
   const markedWords = new Set();
@@ -55,6 +56,12 @@ export function renderFehlerjagd(scene, go, ctx) {
         marked_indices: [...markedWords], marked_gap_indices: [...markedGaps],
         profile_id: ctx.profileId ?? null,
       });
+      if (ctx.profileId) {
+        api.rewardProofread({ profile_id: ctx.profileId,
+          found_count: res.found_count, total: res.total })
+          .then((r) => { if (ctx.profile) ctx.profile.points = r.points; })
+          .catch(() => {});
+      }
       renderResult(res);
     } catch (err) {
       result.replaceChildren(el("p", {}, "Fehler: " + err.message));
@@ -63,13 +70,16 @@ export function renderFehlerjagd(scene, go, ctx) {
   });
 
   function renderResult(res) {
-    const items = res.outcomes.map((o) =>
-      el("div", { class: "outcome " + (o.found ? "found" : "missed") }, [
+    const items = res.outcomes.map((o) => {
+      const correct = el("strong", { class: "speakable", title: "Antippen zum Anhören" }, o.correct);
+      correct.addEventListener("click", () => speak(o.correct));
+      return el("div", { class: "outcome " + (o.found ? "found" : "missed") }, [
         el("div", {}, `${o.found ? "✓ gefunden" : "✗ übersehen"}: „${o.shown}" → `),
-        el("strong", {}, o.correct),
+        correct,
         el("div", { class: "regel" },
           (o.regel && o.regel !== "–" ? `Regel ${o.regel}: ` : "") + o.tipp),
-      ]));
+      ]);
+    });
     result.replaceChildren(
       el("h3", {}, `${res.found_count} von ${res.total} Fehlern gefunden`),
       ...(res.false_positives
